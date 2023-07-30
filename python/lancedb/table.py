@@ -20,7 +20,10 @@ from typing import Iterable, List, Union
 
 import lance
 import numpy as np
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pyarrow as pa
 import pyarrow.compute as pc
 from lance import LanceDataset

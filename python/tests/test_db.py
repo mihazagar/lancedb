@@ -11,8 +11,12 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+import sys
 import numpy as np
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pyarrow as pa
 import pytest
 
@@ -46,7 +50,8 @@ def test_basic(tmp_path):
 
     assert db.open_table("test").name == db["test"].name
 
-
+@pytest.mark.skipif('pandas' not in sys.modules,
+                    reason="requires the Pandas library")
 def test_ingest_pd(tmp_path):
     db = lancedb.connect(tmp_path)
 

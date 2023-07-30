@@ -13,7 +13,10 @@
 
 import attr
 import numpy as np
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pyarrow as pa
 import pytest
 from aiohttp import web

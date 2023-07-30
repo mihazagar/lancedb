@@ -18,7 +18,10 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple, Union
 
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pyarrow as pa
 from pyarrow import fs
 

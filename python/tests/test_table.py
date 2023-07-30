@@ -16,7 +16,10 @@ from pathlib import Path
 from unittest.mock import PropertyMock, patch
 
 import numpy as np
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pyarrow as pa
 import pytest
 from lance.vector import vec_to_table

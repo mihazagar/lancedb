@@ -16,7 +16,10 @@ import sys
 from typing import Callable, Union
 
 import numpy as np
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pyarrow as pa
 from lance.vector import vec_to_table
 from retry import retry

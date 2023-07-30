@@ -14,8 +14,13 @@ from pathlib import Path
 from typing import List, Union
 
 import numpy as np
-import pandas as pd
+
 import pyarrow as pa
+
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 
 VEC = Union[list, np.ndarray, pa.Array, pa.ChunkedArray]
 URI = Union[str, Path]

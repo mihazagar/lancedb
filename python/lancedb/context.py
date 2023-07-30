@@ -12,7 +12,10 @@
 #  limitations under the License.
 from __future__ import annotations
 
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 
 from .exceptions import MissingColumnError, MissingValueError
 

@@ -11,7 +11,10 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 import pytest
 
 from lancedb.context import contextualize
